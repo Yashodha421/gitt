@@ -1,0 +1,52 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace arrays
+{
+    class Circle
+    {
+        double radius;
+        ////public Circle()
+        //{
+        //    radius = 2.0;
+        //}
+        double pi = 3.14;
+        public void setRadius(double radius)
+        {
+            this.radius = radius;
+
+        }
+        public double getRadius()
+        {
+            return this.radius;
+
+        }
+        public double calcDiameter()
+        {
+            return radius * 2;
+        }
+        public double calcArea()
+        {
+            return pi * radius * radius;
+        }
+    }
+    public class Test
+    {
+        public static void Main()
+        {
+            Circle c = new Circle();
+       
+           c.setRadius(3.0);
+           Console.WriteLine( c.getRadius());
+           Console.WriteLine( c.calcDiameter());
+           Console.WriteLine(c.calcArea());
+        }
+    }
+
+
+}
+
+
