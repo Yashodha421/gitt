@@ -1,0 +1,149 @@
+db.movie.insert({"empid":"5135"})
+
+db.movie.insert(
+{
+title : "Pulp Fiction",
+
+writer : "Quentin Tarantino",
+
+year : "1994",
+
+actors : [
+
+  "John Travolta",
+
+  "Uma Thurman"
+
+]
+})
+db.movie.insert(
+{
+title : "The Hobbit: The Desolation of Smaug",
+
+writer : "J.R.R. Tolkein",
+
+year : "2013",
+
+franchise : "The Hobbit"
+})
+
+db.movie.find( {actor: {$in : ["Uma Thurman"]} } ) 
+ 
+db.movie.insert(
+{
+title : "Inglorious Basterds",
+
+writer : "Quentin Tarantino",
+
+year : "2009",
+
+actors : [
+
+  "Brad Pitt",
+
+  "Diane Kruger",
+
+  "Eli Roth"
+
+]
+})
+db.movie.insert({
+title : "The Hobbit: The Battle of the Five Armies",
+
+writer : "J.R.R. Tolkein",
+
+year : "2012",
+
+franchise : "The Hobbit",
+
+synopsis : "Bilbo and Company are forced to engage in a war against an array of combatants and keep the Lonely Mountain from falling into the hands of a rising darkness."
+})
+
+db.movie.insert({
+title :" Pee Wee Herman's Big Adventure"
+})
+
+db.movie.insert({
+title : "Avatar"
+})
+
+db.movie.update({
+title:"Pulp Fiction"},
+{$set;{actor:"Samual L. Jackson"}
+})
+db.users.update( { _id: "1" }, { $rename: { 'last_name': 'lname', 'first_name': 'fname' } } )
+db.books.updateMany(
+    { },
+    { $set: { purchase_date: new Date() } }
+)
+db.movie.update({title : "The Hobbit: The Desolation of Smaug"}, {$set: {synopsis :"The dwarves, along with
+ Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland,
+ from Smaug. Bilbo Baggins is in possession of a mysterious and magical ring.to reclaim their
+ mountain home - and the gold within it - from the dragon Smaug."}}
+)
+
+db.movie.update({title : "The Hobbit: An Unexpected Journey"}, 
+{$set: {synopsis :"The dwarves, along with Bilbo Baggins 
+and Gandalf the Grey, continue their quest to reclaim Erebor,
+ their homeland, from Smaug. Bilbo Baggins is in possession of
+ a mysterious and magical ring."}}
+)
+
+
+db.movie.find()
+
+db.movie.find().pretty()
+
+db.movie.find({writer:"Quentin Tarantino"})
+
+3.db.movie.find({Actor:"Brad pitt"})
+
+db.movie.find({franchise:"The Hobbit"})
+
+db.movie.find({synopsis:/bilbo/i})
+db.univ.insert({
+  country : 'Spain',
+  city : 'Salamanca',
+  name : 'USAL',
+  location : {
+    type : 'Point',
+    coordinates : [ -5.6722512,17, 40.9607792 ]
+  },
+  students : [
+    { year : 2014, number : 24774 },
+    { year : 2015, number : 23166 },
+    { year : 2016, number : 21913 },
+    { year : 2017, number : 21715 }
+  ]
+})
+db.univ.insert({
+  country : 'Spain',
+  city : 'Salamanca',
+  name : 'UPSA',
+  location : {
+    type : 'Point',
+    coordinates : [ -5.6691191,17, 40.9631732 ]
+  },
+  students : [
+    { year : 2014, number : 4788 },
+    { year : 2015, number : 4821 },
+    { year : 2016, number : 6550 },
+    { year : 2017, number : 6125 }
+  ]
+})
+db.univ.aggregate([
+{ $group:{_id:"$name",totaldocs:{$sum: "_id"}}}
+])
+
+
+
+db.univ.aggregate(
+{
+	"$project":{
+		"country":1,
+		"city":1,
+		"name":1
+		}
+})
+
+	
